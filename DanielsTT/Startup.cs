@@ -37,6 +37,12 @@ namespace DanielsTT
             services.AddTransient<IEmailSender, EmailSender>();
 
             services.AddMvc();
+
+            services.AddDbContext<PlayerContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("PlayerContext")));
+
+            services.AddDbContext<TeamsContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("TeamsContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

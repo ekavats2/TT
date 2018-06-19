@@ -1,0 +1,51 @@
+﻿@model DanielsTT.Models.Teams
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Teams</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TeamName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TeamRegion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TeamRegion)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model  => model.Team)
+        </dt>
+        <dd>
+            <table class="table">
+                @foreach (var item in Model.Team)
+                {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.NickName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.LastName)
+                    </td>
+                </tr>
+                }
+            </table>
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.TeamID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
